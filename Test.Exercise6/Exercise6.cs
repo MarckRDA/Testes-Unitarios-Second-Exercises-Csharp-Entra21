@@ -1,37 +1,17 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Linq;
 
 namespace Test.Exercise6
 {
     public class Exercise6
     {
-        public List<double> DirectOrderArray(List<double> numbersA)
-        {
-            numbersA.Sort();
-            return numbersA;
-        }
+        public List<double> DirectOrderArray(List<double> numbersA) => numbersA.OrderBy(x => x).ToList();
 
-        public List<double> ReverseOrderArray(List<double> numbersB)
-        {
-            numbersB.Sort();
-            numbersB.Reverse();
-            return numbersB;
-        }
-        
+        public List<double> ReverseOrderArray(List<double> numbersB) => numbersB.OrderByDescending(x => x).ToList();
+
         public List<double> SumListA_B_AndSortedList(List<double> numbersA, List<double> numbersB)
         {
-            var numbersC = new List<double>();
-
-            numbersA.Sort();
-            numbersB.Sort();
-            numbersB.Reverse();
-            
-            for (int index = 0; index < numbersA.Count; index++)
-            {
-                numbersC.Add(numbersA[index] + numbersB[index]);
-            }
-            numbersC.Sort();
+            var numbersC = DirectOrderArray(numbersA).Zip(ReverseOrderArray(numbersB), (n1, n2) => n1 + n2).OrderBy(n => n).ToList();
             return numbersC;
         }
     }

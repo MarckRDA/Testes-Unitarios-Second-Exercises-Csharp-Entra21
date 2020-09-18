@@ -6,35 +6,31 @@ namespace Test.Exercise6
 {
     public class TestExercise6
     {
+        List<double> listNumbersA = new List<double>()
+        {
+            10, 90, 37, 65, 23, 84, -2, -7, -4, -5, 0, -9
+        };
+
+        List<double> listNumbersB = new List<double>()
+        {
+            100, -222, 32, 40, -77,-46, 21, 10, -8, -7, 2, -43
+        };
+
         [Fact]
         public void Should_Return_A_List_Shorted()
         {
             //Given
             var exercise6 = new Exercise6();
-            var listNumbers = new List<double>()
-            {
-                1,2,3,4,5,7,2,3,4,5,6,7
-            };
 
             //When
-            var result = exercise6.DirectOrderArray(listNumbers);
+            var result = exercise6.DirectOrderArray(listNumbersA);
+            var expectedResult = new List<double>()
+            {
+                -9, -7, -5, -4, -2, 0, 10, 23, 37, 65, 84, 90
+            };
 
             //Then
-            Assert.Collection(
-                result,
-                item1 => {Assert.Equal(1,item1);},
-                item2 => {Assert.Equal(2,item2);},
-                item3 => {Assert.Equal(2,item3);},
-                item4 => {Assert.Equal(3,item4);},
-                item5 => {Assert.Equal(3,item5);},
-                item6 => {Assert.Equal(4,item6);},
-                item7 => {Assert.Equal(4,item7);},
-                item8 => {Assert.Equal(5,item8);},
-                item9 => {Assert.Equal(5,item9);},
-                item10 => {Assert.Equal(6,item10);},
-                item11 => {Assert.Equal(7,item11);},
-                item12 => {Assert.Equal(7,item12);}
-            );
+            Assert.Equal(expectedResult, result);
         }
 
         [Fact]
@@ -42,33 +38,16 @@ namespace Test.Exercise6
         {
             //Given
             var exercise6 = new Exercise6();
-            var listNumbers = new List<double>()
-            {
-                100,222,32,40,77,46,21,10,8,7,2,43
-            };
 
             //When
-            var result = exercise6.ReverseOrderArray(listNumbers);
+            var result = exercise6.ReverseOrderArray(listNumbersB);
+            var expectedResult = new List<double>()
+            {
+                100, 40, 32, 21, 10, 2, -7, -8, -43, -46, -77, -222
+            };
 
             //Then
-            Assert.Collection(
-                result,
-                item1 => {Assert.Equal(222,item1);},
-                item2 => {Assert.Equal(100,item2);},
-                item3 => {Assert.Equal(77,item3);},
-                item4 => {Assert.Equal(46,item4);},
-                item5 => {Assert.Equal(43,item5);},
-                item6 => {Assert.Equal(40,item6);},
-                item7 => {Assert.Equal(32,item7);},
-                item8 => {Assert.Equal(21,item8);},
-                item9 => {Assert.Equal(10,item9);},
-                item10 => {Assert.Equal(8,item10);},
-                item11 => {Assert.Equal(7,item11);},
-                item12 => {Assert.Equal(2,item12);}
-            );
-            
-            
-           
+            Assert.Equal(expectedResult, result);
         }
 
         [Fact]
@@ -76,34 +55,16 @@ namespace Test.Exercise6
         {
             //Given
             var exercise6 = new Exercise6();
-            var listA = new List<double>()
-            {
-                1,2,3,4,5,7,2,3,4,5,6,7
-            };
-            var listB = new List<double>()
-            {
-                100,222,32,40,77,46,21,10,8,7,2,43
-            };
-
+           
             //When
-            var result = exercise6.SumListA_B_AndSortedList(listA, listB);
+            var result = exercise6.SumListA_B_AndSortedList(listNumbersA, listNumbersB);
+            var expectedResult = new List<double>()
+            {
+               -132, -6, 2, 3, 7, 8, 15, 17, 19, 27, 33, 91 
+            };
 
             //Then
-            Assert.Collection(
-                result,
-                item1 => {Assert.Equal(9,item1);},
-                item2 => {Assert.Equal(14,item2);},
-                item3 => {Assert.Equal(14,item3);},
-                item4 => {Assert.Equal(15,item4);},
-                item5 => {Assert.Equal(26,item5);},
-                item6 => {Assert.Equal(36,item6);},
-                item7 => {Assert.Equal(44,item7);},
-                item8 => {Assert.Equal(46,item8);},
-                item9 => {Assert.Equal(49,item9);},
-                item10 => {Assert.Equal(79,item10);},
-                item11 => {Assert.Equal(102,item11);},
-                item12 => {Assert.Equal(223,item12);}
-            ); 
+            Assert.Equal(expectedResult, result);
         }
 
     }
