@@ -1,27 +1,14 @@
 using System;
+using System.Linq;
 
 namespace Test.Exercise2
 {
     public class Exercise2
     {
-        public double[] PrintingInDirectOrder(double[] numbers)
-        {
-            var returnedArray = new double[10];
-            for (int i = 0; i < numbers.Length ; i++)
-            {
-                returnedArray[i] = numbers[i];
-            }      
+        public double[] PrintingInDirectOrder(double[] numbers) => numbers.ToList().OrderBy(n => n).ToArray();
+        
 
-            return returnedArray;     
-        }
-
-        public double[] PrintingInReverseOrder(double[] numbers)
-        {
-            var returnedArray = new double[10];
-            for (int i = numbers.Length; i > 0 ; i--)
-                returnedArray[numbers.Length - i] = numbers[i - 1];
-
-            return returnedArray;
-        }
+        public double[] PrintingInReverseOrder(double[] numbers) => numbers.ToList().OrderByDescending(n => n).ToArray();
+        
     }
 }
