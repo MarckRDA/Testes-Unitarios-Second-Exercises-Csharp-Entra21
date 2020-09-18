@@ -27,5 +27,27 @@ namespace Test.Exercise4
             //Then
             Assert.True(result);
         }
+
+        [Fact]
+        public void Should_Return_Whether_An_Array_Is_Equal_Another_With_Negative_Numbers()
+        {
+            //Given
+            var exercise4 = new Exercise4();
+            var listOne = new List<double>()
+            {
+                -9, -6, -15, -54, -2, -4, -8, -1, -56, -24
+            };
+
+            var listTwo = new List<double>()
+            {
+                -54, -24, -4, -1, -9, -6, -56, -15, -8, -2
+            };
+
+            //When
+            var result = exercise4.EqualityBetweenArrays(listOne,listTwo);
+
+            //Then
+            Assert.True(result);
+        }
     }
 }

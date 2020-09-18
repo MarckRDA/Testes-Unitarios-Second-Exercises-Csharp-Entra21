@@ -17,7 +17,7 @@ namespace Test.Exercise4
                 }
             }
 
-            if(flag == 10)
+            if(flag == listOne.Count)
             {
                 return true;
             }
